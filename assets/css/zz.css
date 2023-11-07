@@ -69,3 +69,15 @@ body {
 .main {
     height: 100vh;
 }
+
+.top-side {
+    display: flex;
+}
+
+.menu {
+    display: flex;
+}
+
+.biaoti {
+    padding-left: 60px;
+}
