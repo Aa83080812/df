@@ -24,3 +24,41 @@
 .block.property {
     transition-property: background-color;
 }
+
+.info-item {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    line-height: 100px;
+}
+
+.info-item.t1 {
+    position: relative;
+    background-color: #dedede;
+    height: 100px;
+    width: 200px;
+    top: 0px;
+    left: 100px;
+}
+
+.info-item.t2 {
+    position: relative;
+    background-color: #dedede;
+    height: 100px;
+    width: 200px;
+    top: 100px;
+    left: 500px;
+}
+
+.info-item.t1.active {
+    left: 700px;
+}
+
+.info-item.t2.active {
+    left: 0px;
+}
+
+.info-wrap {
+    transition-duration: 1s;
+    
+}
