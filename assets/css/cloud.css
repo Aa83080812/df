@@ -36,3 +36,13 @@
     border-radius: 1000px;
     background: rgb(255, 255, 255);
 }
+.cloud::before {
+    content: '';
+    position: absolute;
+    top: -170px;
+    right: 61px;
+    width: 300px;
+    height: 300px;
+    border-radius: 1000px;
+    background: rgb(255, 255, 255);
+}
