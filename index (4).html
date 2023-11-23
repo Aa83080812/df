@@ -16,7 +16,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/main (4).css">
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
 <body>
@@ -152,12 +152,41 @@
                     </ul>
                 </div>
                 <div class="donate-wrap">
-                    <span class="like-btn">愛心</span>
-                    <span class="donate-btn">贊助專案</span>
+                    <a href="#" class="like-btn">
+                        <span class="material-symbols-outlined">
+                            favorite
+                        </span>
+                    </a>
+                    <a href="#" class="donate-btn">贊助專案</a>
                 </div>
             </div>
         </div>
     </div>
+
 </body>
+
+<script>
+    let tabs = document.querySelector('.tabs');
+    tabs.addEventListener('click', (e) => {
+        e.preventDefault();
+        let el = e.target;
+
+        if (el.tagName == 'A') {
+            el = el.parentNode;
+        }
+
+        if (el.tagName == 'LI') {
+            resetTabsActive();
+            el.classList.add('active')
+        }
+    });
+
+    function resetTabsActive() {
+        let items = tabs.querySelectorAll('li');
+        items.forEach(el => {
+            el.classList.remove('active');
+        })
+    }
+</script>
 
 </html>
