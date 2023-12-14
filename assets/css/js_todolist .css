@@ -59,4 +59,36 @@
     padding: 10px 5px;
     border-radius: 4px;
     gap: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#todo-item>li:hover {
+    background: #3739b3;
+    color: #fff;
+    border-color: #3739b3;
+}
+
+#todo-item>li>input[type=checkbox]:checked+span {
+    text-decoration: line-through;
+}
+
+.tabs {
+    display: none;
+}
+
+.tabs.active {
+    display: block;
+}
+
+.fn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#preview {
+    max-width: 100%;
+    margin-top: 20px;
+    border: 1px solid #000;
 }
