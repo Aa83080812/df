@@ -1,30 +1,44 @@
-let elInput = document.querySelector('#todo-in');
-let elAddBtn = document.querySelector('#todo-add-btn');
-let elItem = document.querySelector('#todo-item');
+import { TODO } from '/.vscode/TODO.js';
+import { UID } from '/class/UID.js';
 
-const addTodo = () => {
-    let value = elInput.value;
-    if (!value) {
+let uid = UID.read();
+
+if (uid) {
+    // TODO Application.
+    let elInput = document.querySelector('#todo-in');
+    let elAddBtn = document.querySelector('#todo-add-btn');
+    let elItem = document.querySelector('#todo-item');
+    let todo = new TODO(elItem);
+
+    const addTodo = () => {
+        let value = elInput.value;
+        if (!value) {
+            elInput.focus();
+            return; // void
+        }
+
+        elInput.value = '';
         elInput.focus();
-        return;
+
+        todo.add(value);
+        todo.render();
     }
 
-    elItem.innerHTML += `<li>
-                            <div><input type="checkbox"></div>
-                            <div>${value}</div>
-                        </li>`
+    elAddBtn.addEventListener('click', (e) => {
+        addTodo();
+    })
 
-    elInput.value = '';
-    elInput.focus();
+
+    elInput.addEventListener('keyup', (e) => {
+        if (e.key.toString().toUpperCase() == 'ENTER') {
+            addTodo();
+        }
+    })
+} else {
+    // Show Input uid.
+    console.log('Not Set UID.')
+
 }
 
-elAddBtn.addEventListener('click', (e) => {
-    addTodo();
-})
 
 
-elInput.addEventListener('keyup', (e) => {
-    if (e.key.toString().toUpperCase() == 'ENTER') {
-        addTodo();
-    }
-})
