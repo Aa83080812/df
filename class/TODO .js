@@ -1,14 +1,17 @@
-import { LocalStorage } from "/.vscode/class/LocalStorage.js";
+import { LocalStorage } from "./LocalStorage.js";
+import { TODO_API } from './TODO_API.js'
 
 class TODO {
     #items
     #el
     #storage
+    #uid
 
-    constructor(el) {
+    constructor(el, uid = 'todo') {
         this.#items = [];
         this.#el = el;
-        this.#storage = new LocalStorage('todo');
+        this.#storage = new LocalStorage(uid);
+        this.#uid = uid;
         this.init();
     }
 
@@ -23,8 +26,8 @@ class TODO {
         this.#storage.write('todo', this.#items)
     }
 
-    read() {
-        return this.#storage.read('todo', []);
+    async read() {
+        return await TODO_API.get(this.#uid)
     }
 
     checkedToggle(index) {
@@ -40,7 +43,7 @@ class TODO {
         this.#items.forEach((item, index) => {
             let checked = item.checked ? 'checked' : '';
 
-            html += `<li data-index="${index}">
+            html += `<li data-index="${index}" draggable="true">
                         <input type="checkbox" ${checked}>
                         <span>${item.text}</span>
                     </li>`
@@ -48,8 +51,8 @@ class TODO {
         this.#el.innerHTML = html;
     }
 
-    init() {
-        this.#items = this.read();
+    async init() {
+        this.#items = await this.read();
         this.render();
         this.#el.addEventListener('click', (e) => {
             let el = e.target;
@@ -63,6 +66,26 @@ class TODO {
                 let index = el.dataset.index;
                 this.checkedToggle(index);
             }
+        })
+    }
+
+    dragAndDrop() {
+        this.#el.addEventListener('dragstart', (e) => {
+            let data = { index: e.target.dataset.index, type: 'pending' };
+            e.dataTransfer.setData('text', JSON.stringify(data));
+        })
+
+        let aa = document.querySelector('#aa');
+
+        aa.addEventListener('dragover', (e) => {
+            e.preventDefault();
+
+        })
+
+        aa.addEventListener('drop', (e) => {
+            console.log(e);
+            let data = JSON.parse(e.dataTransfer.getData('text'))
+            console.log(data);
         })
     }
 }
