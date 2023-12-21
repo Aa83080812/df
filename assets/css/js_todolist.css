@@ -39,6 +39,16 @@
     margin-top: 10px;
 }
 
+.todo-input button.linker {
+    background: transparent;
+    color: #636363;
+    width: auto;
+    height: auto;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #636363;
+    border-radius: 0;
+}
+
 /* .todo-item {
     display: flex;
     align-items: center;
@@ -74,7 +84,7 @@
 }
 
 .tabs {
-    /* display: none; */
+    display: none;
 }
 
 .tabs.active {
@@ -85,4 +95,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+#preview {
+    max-width: 100%;
+    margin-top: 20px;
+    border: 1px solid #000;
 }
