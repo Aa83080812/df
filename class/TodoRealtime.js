@@ -1,5 +1,5 @@
-import { App } from '../Firebase/App.js'
-import { Database } from '../Firebase/Database.js'
+import { App } from '/class/App.js'
+import { Database } from '/class/Database.js'
 
 class TodoRealtime {
     #items
