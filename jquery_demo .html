@@ -7,13 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jQuery Demo</title>
     <link rel="stylesheet" href="assets/css/reset.css">
-    <script src="assets/js/jquery.min.js"></script>
+    <script src=".vscode/jquery.min.js"></script>>
 </head>
 
 <body>
     <div class="container">
         <h1>jQuery Demo</h1>
         <div id="display-account">Account Information.</div>
+        <div>
+            <input type="text" id="account" value="123">
+        </div>
+
+        <ul>
+            <li class="student">1</li>
+            <li class="student">2</li>
+            <li class="student">3</li>
+            <li class="student">4</li>
+            <li class="student">5</li>
+        </ul>
     </div>
 </body>
 <script>
@@ -22,6 +33,21 @@
 
     console.log(elDisAccount.html())
     console.log(elDisAccountDOM.innerHTML)
+
+    let elAccountDOM = document.querySelector('#account');
+    let elAccount = $('#account');
+
+    console.log(elAccount.val())
+    console.log(elAccountDOM.value)
+
+    elAccount.val('456')
+
+    let elStudents = $('.student');
+    elStudents.each((index, student) => {
+        console.log(index, student)
+        student = $(student);
+        console.log(student.html())
+    })
 </script>
 
 </html>
