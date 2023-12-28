@@ -7,13 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jQuery Demo</title>
     <link rel="stylesheet" href="assets/css/reset.css">
-    <script src="assets/js/jquery.min.js"></script>
+    <script src=".vscode/jquery.min.js"></script>>
 </head>
 
 <body>
     <div class="container">
         <h1>jQuery Demo</h1>
+        <div id="display-account">Account Information.</div>
+        <div>
+            <input type="text" id="account" value="123">
+        </div>
     </div>
 </body>
+<script>
+    let elDisAccountDOM = document.querySelector('#display-account');
+    let elDisAccount = $('#display-account');
+
+    console.log(elDisAccount.html())
+    console.log(elDisAccountDOM.innerHTML)
+
+    let elAccountDOM = document.querySelector('#account');
+    let elAccount = $('#account');
+
+    console.log(elAccount.val())
+    console.log(elAccountDOM.value)
+
+    elAccount.val('456')
+</script>
 
 </html>
