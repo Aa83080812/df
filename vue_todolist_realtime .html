@@ -15,7 +15,7 @@
 <body>
     <div class="container">
         <div id="todo-app">
-            <div class="tabs">
+            <div class="tabs" v-show="isAuth">
                 <div class="fn">
                     <h1>TODO LIST</h1>
                     <div>
@@ -38,24 +38,24 @@
                 </div>
             </div>
 
-            <div class="tabs">
+            <div class="tabs" v-show="!isAuth">
                 <h1>請輸入帳號</h1>
                 <div class="todo-input">
-                    <input type="email" id="todo-account" placeholder="Email">
+                    <input type="email" id="todo-account" placeholder="Email" v-model="auth.account" ref="auth_account">
                 </div>
                 <h1>請輸入密碼</h1>
                 <div class="todo-input">
-                    <input type="password" id="todo-password" placeholder="密碼">
+                    <input type="password" id="todo-password" placeholder="密碼" v-model="auth.secret" ref="auth_secret">
                 </div>
                 <div class="todo-input" style="justify-content: space-between;">
                     <button id="todo-register-btn" class="linker">註冊</button>
-                    <button id="todo-signin-btn">登入</button>
+             <button id="todo-signin-btn" @click.prevent="login">登入</button>
                 </div>
             </div>
         </div>
     </div>
 </body>
 <!-- <script type="module" src="assets/js/js_todolist_realtime.js"></script> -->
-<script type="module" src="assets/js/vue_todolist_realtime.js"></script>
+<script type="module" src="vscode/js/vue_todolist_realtime.js"></script>
 
 </html>
