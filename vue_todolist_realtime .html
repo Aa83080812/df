@@ -19,7 +19,7 @@
                 <div class="fn">
                     <h1>TODO LIST</h1>
                     <div>
-                        <a href="#" id="change-uid-btn">登出</a>
+                        <a href="#" id="change-uid-btn" @click.prevent="logout">登出</a>
                     </div>
                 </div>
                 <div>現在登入帳號: <span id="current-uid">{{ user.uid }}</span></div>
@@ -56,6 +56,6 @@
     </div>
 </body>
 <!-- <script type="module" src="assets/js/js_todolist_realtime.js"></script> -->
-<script type="module" src="assets/js/vue_todolist_realtime.js"></script>
+<script type="module" src=".vscode/vue_todolist_realtime.js"></script>
 
 </html>
